@@ -1,6 +1,6 @@
 package com.champlain.oop2assignment2;
 
-public class Card {
+public class Card implements Comparable<Card> {
     private final Suit aSuit;
 
     private final Rank aRank;
@@ -21,5 +21,12 @@ public class Card {
     @Override
     public String toString() {
         return this.aRank + " of " + this.aSuit;
+    }
+
+    @Override
+    public int compareTo(Card pCard) {
+        if(this.aSuit == pCard.getSuit())
+            return this.aRank.ordinal() - pCard.getRank().ordinal();
+        return this.aSuit.ordinal() - pCard.getSuit().ordinal();
     }
 }
