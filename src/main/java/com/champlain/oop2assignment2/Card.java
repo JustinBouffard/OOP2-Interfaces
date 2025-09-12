@@ -5,7 +5,7 @@ public class Card implements Comparable<Card> {
 
     private final Rank aRank;
 
-    public Card (Rank pRank, Suit pSuit) {
+    public Card(Rank pRank, Suit pSuit) {
         this.aRank = pRank;
         this.aSuit = pSuit;
     }
@@ -25,8 +25,7 @@ public class Card implements Comparable<Card> {
 
     @Override
     public int compareTo(Card pCard) {
-        if(this.aSuit == pCard.getSuit())
-            return this.aRank.ordinal() - pCard.getRank().ordinal();
+        if (this.aSuit == pCard.getSuit()) return this.aRank.ordinal() - pCard.getRank().ordinal();
         return this.aSuit.ordinal() - pCard.getSuit().ordinal();
     }
 }
