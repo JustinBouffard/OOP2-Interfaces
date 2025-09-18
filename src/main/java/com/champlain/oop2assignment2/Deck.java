@@ -1,10 +1,8 @@
 package com.champlain.oop2assignment2;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
-public class Deck implements CardSource {
+public class Deck implements CardSource, Shufflable, Sortable, Iterable<Card> {
     private final List<Card> aCards = new ArrayList<>();
 
     public Deck() {
@@ -20,11 +18,15 @@ public class Deck implements CardSource {
     }
 
     public void sort() {
-        Collections.sort(this.aCards);
+        this.aCards.sort(new SuitFirstComparator());
+    }
+
+    public Iterator<Card> iterator() {
+        return this.aCards.iterator();
     }
 
     public Card draw() {
-        int last = this.aCards.size()-1;
+        int last = this.aCards.size() - 1;
         Card myCard = this.aCards.get(last);
         this.aCards.remove(last);
         return myCard;

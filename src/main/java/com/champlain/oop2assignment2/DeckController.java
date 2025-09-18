@@ -30,7 +30,7 @@ public class DeckController {
         this.aDeckTextArea.setText("This does not step through anything yet.");
     }
 
-    private void displayDeck () {
+    private void displayDeck() {
         this.aDeckTextArea.setText(this.aDeck.toString());
     }
 }
